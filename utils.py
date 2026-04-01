@@ -23,7 +23,7 @@ class CurrencyConverter:
         except ValueError:
             raise ConvertionException(f'Не удалос обработать количество {amount}')
 
-        r = requests.get(f'https://api.api-ninjas.com/v1/convertcurrency{quote_ticker}{base_ticker}{amount}')
+        r = requests.get(f'https://api.api-ninjas.com/v1/convertcurrency{quote_ticker}{base_ticker}{amount}{API_KEY}')
         total_base = json.loads(r.content)[keys[base]]
 
         return total_base
